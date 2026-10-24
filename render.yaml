@@ -1,0 +1,34 @@
+# Configuration proposée, sans création automatique de service.
+# Le service Starter et le disque persistant sont payants chez Render.
+services:
+  - type: web
+    name: cap-personnel
+    runtime: node
+    plan: starter
+    autoDeploy: false
+    buildCommand: npm ci --include=dev --no-audit --no-fund && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: cap-donnees-privees
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: CAP_AUTH_ENABLED
+        value: "1"
+      - key: CAP_DATA_DIR
+        value: /var/data/cap
+      - key: CAP_SETUP_CODE
+        sync: false
+      - key: AGENT_API_KEY
+        sync: false
+      - key: AGENT_MODEL
+        value: gpt-5.4
+      - key: AGENT_REASONING_EFFORT
+        value: high

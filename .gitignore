@@ -1,2 +1,20 @@
 # Google App Engine generated folder
 appengine-generated/
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+playwright-report/
+test-results/
+data/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+.workspace-key
+.cap-data/
