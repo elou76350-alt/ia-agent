@@ -2,6 +2,8 @@
 
 Application personnelle francophone installable sur iPhone et Android : connexion privée, conversation, budget, carrière, objectifs et journal de bien-être. Le parcours professionnel initial est adapté à un **Patient Experience Specialist**. Les montants et objectifs d'exemple sont signalés comme fictifs ; le pays reste à renseigner.
 
+Pour reprendre le projet dans Codex : lire [AGENTS.md](AGENTS.md) et [la passation complète](docs/CODEX-HANDOFF.md).
+
 ## Installer CAP sur iPhone
 
 Sans domaine ni serveur existant, un chemin géré est préparé dans [Hébergement simple](docs/HEBERGEMENT-SIMPLE.md), avec `render.yaml`. Render attribue une adresse HTTPS ; le service avec disque persistant est payant et n’est pas créé automatiquement.
@@ -22,7 +24,7 @@ Les écritures utilisent des révisions pour éviter d’écraser les changement
 
 ## Démarrage local
 
-Prérequis : Node.js 22.12+ (Node.js 24 recommandé) et npm.
+Prérequis : Node.js 24 et npm (`node:sqlite` est utilisé par l’API).
 
 ```sh
 cd /workspace/ia-agent

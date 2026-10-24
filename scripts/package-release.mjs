@@ -5,7 +5,7 @@ import { spawnSync } from 'node:child_process';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const topLevelFiles = [
-  'README.md', '.env.example', '.gitignore', '.dockerignore', 'Dockerfile',
+  'README.md', 'AGENTS.md', '.env.example', '.gitignore', '.dockerignore', 'Dockerfile',
   'compose.yaml', 'Caddyfile', 'render.yaml', 'package.json', 'package-lock.json', 'index.html',
   'tsconfig.json', 'vite.config.ts', 'playwright.config.ts', 'playwright.protected.config.ts',
 ];
