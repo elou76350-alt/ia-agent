@@ -41,6 +41,10 @@ Lire d’abord `docs/CODEX-HANDOFF.md`, puis `README.md`. Le projet existe déj�
 
 ## Déploiement
 
+**Nouvelle préférence confirmée : budget 0 €, publication gratuite.** Lire `docs/GRATUIT-CLOUDFLARE.md` avant de proposer Render. `wrangler.jsonc` configure Workers Free, D1 et Workers AI ; le backend est `cloudflare/index.mjs` / `cloudflare/worker.mjs`. Le modèle gratuit n’est pas GPT-5.4 et aucune clé OpenAI n’est nécessaire dans cette variante. Les quotas gratuits s’appliquent, CAP limite en plus les tentatives à 30 par jour UTC et n’active pas de fournisseur payant en secours. Ne pas activer Workers Paid ni une offre premium.
+
+Le compte Cloudflare n’est pas connecté ; aucun lien public ni appel réel Workers AI n’a encore été vérifié. Les secrets Cloudflare `CAP_SETUP_CODE` et `CAP_DATA_KEY` sont locaux au processus Worker, pas des placeholders de proxy. Ne pas modifier la clé d’une base existante. La version Node conserve le chiffrement sur disque et son fonctionnement précédent.
+
 Lire `docs/HEBERGEMENT-SIMPLE.md` pour le chemin Render et `docs/DEPLOIEMENT.md` pour Docker/Caddy. Le plan Render avec disque persistant est payant ; une création de service ou souscription n’a pas encore été autorisée. Préparer un résultat vérifiable avant de demander une éventuelle activation payante.
 
 Terminer les travaux indépendants sans attendre les accès manquants. Distinguer toujours le code préparé, les tests réellement exécutés, la configuration enregistrée et la mise en ligne effective.

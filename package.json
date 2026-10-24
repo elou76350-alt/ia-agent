@@ -12,7 +12,10 @@
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "test:private": "playwright test --config playwright.protected.config.ts",
-    "test:container": "node scripts/test-container.mjs"
+    "test:container": "node scripts/test-container.mjs",
+    "cf:dev": "wrangler dev --local",
+    "cf:check": "wrangler deploy --dry-run --outdir .wrangler/dry-run",
+    "cf:deploy": "wrangler deploy"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
@@ -30,6 +33,7 @@
     "@vitejs/plugin-react": "^5.1.0",
     "concurrently": "^9.2.1",
     "typescript": "^5.9.3",
-    "vite": "^7.2.2"
+    "vite": "^7.2.2",
+    "wrangler": "4.152.0"
   }
 }

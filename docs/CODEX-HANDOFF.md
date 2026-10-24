@@ -1,5 +1,15 @@
 # Passation du projet CAP à Codex
 
+## Mise à jour : demande de gratuité
+
+L’utilisateur a confirmé vouloir mettre CAP en ligne **gratuitement**, sans hébergement ni domaine existants. La priorité devient `docs/GRATUIT-CLOUDFLARE.md` et `wrangler.jsonc`, avec Workers Free, D1 et le quota gratuit Workers AI. Le backend Cloudflare reste privé, chiffré, versionné et plafonné à 30 tentatives IA par jour UTC, sans fallback payant. Cette variante n’utilise pas GPT-5.4 ni de clé OpenAI. Les informations ci-dessous sur Node/Render décrivent aussi l’alternative précédente, pas une autorisation de dépense.
+
+Le schéma d’espace commun est maintenant dans `server/workspace-schema.mjs`, importé par les deux backends. Les fichiers Cloudflare sont dans `cloudflare/`. Les tests spécifiques utilisent un adaptateur D1 local et un modèle simulé. Vérifier aussi le bundle `npm run cf:check` et le runtime workerd ; une simulation Node seule ne suffit pas à valider les exports du module Worker.
+
+Aucun accès Cloudflare n’est disponible dans la session qui prépare cette mise à jour. Il reste à connecter le compte gratuit du propriétaire, fournir ses deux secrets dans les réglages privés et publier réellement. Ne pas confondre le dry-run avec un déploiement, ni les quotas annoncés avec des performances vérifiées en production sur le plan Free.
+
+Vérifications de cette variante : compilation et dry-run Wrangler réussis, 50 tests réussis. Le runtime workerd local a validé scrypt et D1. Un navigateur Chromium au format mobile a vérifié la connexion, la sauvegarde et le rechargement, les mentions du quota gratuit, les en-têtes et l’erreur explicite sans liaison AI. Ce n’est pas un test sur iPhone physique. La tentative officielle `wrangler login --device --browser=false` a échoué sur une erreur réseau avant de fournir un lien de connexion ; aucun compte n’a été connecté ni service publié.
+
 ## Demande à reprendre
 
 L’utilisateur veut son application personnelle francophone sur iPhone : pouvoir discuter avec un assistant, organiser ses objectifs, apprendre à gérer ses finances et progresser dans son métier de **Patient Experience Specialist**. Il souhaite une expérience aboutie et simple à utiliser. Il a ensuite demandé la publication du projet sur GitHub, puis la transmission du projet à Codex.

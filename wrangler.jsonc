@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cap-personnel-gratuit",
+  "main": "cloudflare/index.mjs",
+  "compatibility_date": "2026-10-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "build": { "command": "npm run build" },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "cap-personnel", "migrations_dir": "cloudflare/migrations" }
+  ],
+  "ai": { "binding": "AI" },
+  "secrets": { "required": ["CAP_SETUP_CODE", "CAP_DATA_KEY"] },
+  "observability": { "enabled": false }
+}

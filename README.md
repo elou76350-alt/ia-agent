@@ -4,9 +4,11 @@ Application personnelle francophone installable sur iPhone et Android : connexio
 
 Pour reprendre le projet dans Codex : lire [AGENTS.md](AGENTS.md) et [la passation complète](docs/CODEX-HANDOFF.md).
 
+**Priorité actuelle : 0 € avec Cloudflare Workers Free.** Une variante complète avec D1 et le quota gratuit Workers AI est fournie dans [le guide gratuit](docs/GRATUIT-CLOUDFLARE.md). Elle utilise un modèle différent de GPT-5.4, ne nécessite pas de clé OpenAI et bloque les demandes au-delà des limites au lieu de basculer sur un fournisseur payant. L’accès au compte Cloudflare et la publication réelle restent à effectuer.
+
 ## Installer CAP sur iPhone
 
-Sans domaine ni serveur existant, un chemin géré est préparé dans [Hébergement simple](docs/HEBERGEMENT-SIMPLE.md), avec `render.yaml`. Render attribue une adresse HTTPS ; le service avec disque persistant est payant et n’est pas créé automatiquement.
+Sans domaine ni serveur existant, utiliser d’abord [le chemin gratuit Cloudflare](docs/GRATUIT-CLOUDFLARE.md). Le chemin [Render](docs/HEBERGEMENT-SIMPLE.md) reste une alternative payante, pas le choix actuel de l’utilisateur.
 
 La version complète nécessite un serveur HTTPS : voir [le déploiement](docs/DEPLOIEMENT.md). Une fois ce serveur configuré, ouvrir son adresse dans **Safari**, créer le compte propriétaire avec le code privé du serveur, puis choisir **Partager → Sur l’écran d’accueil → Ajouter**. CAP apparaît avec son icône et s’ouvre sans les barres habituelles du navigateur. Il ne s’agit pas d’une publication dans l’App Store.
 

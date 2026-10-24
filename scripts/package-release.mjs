@@ -6,11 +6,11 @@ import { spawnSync } from 'node:child_process';
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const topLevelFiles = [
   'README.md', 'AGENTS.md', '.env.example', '.gitignore', '.dockerignore', 'Dockerfile',
-  'compose.yaml', 'Caddyfile', 'render.yaml', 'package.json', 'package-lock.json', 'index.html',
+  'compose.yaml', 'Caddyfile', 'render.yaml', 'wrangler.jsonc', 'package.json', 'package-lock.json', 'index.html',
   'tsconfig.json', 'vite.config.ts', 'playwright.config.ts', 'playwright.protected.config.ts',
 ];
-const sourceDirectories = ['src', 'server', 'public', 'scripts', 'tests', 'docs'];
-const sourceExtensions = new Set(['.ts', '.tsx', '.mjs', '.js', '.css', '.svg', '.png', '.ico', '.webmanifest', '.md', '.txt', '.html', '.json']);
+const sourceDirectories = ['src', 'server', 'public', 'scripts', 'tests', 'docs', 'cloudflare'];
+const sourceExtensions = new Set(['.ts', '.tsx', '.mjs', '.js', '.css', '.svg', '.png', '.ico', '.webmanifest', '.md', '.txt', '.html', '.json', '.jsonc', '.sql']);
 const excludedDirectories = new Set(['node_modules', 'data', 'dist', '.git', '.cache', 'attachments', 'test-results', 'playwright-report']);
 
 function isWithinProject(path) {
@@ -27,7 +27,7 @@ async function collectDirectory(directory, files) {
     if (metadata.isSymbolicLink()) throw new Error(`Lien symbolique refusé dans les sources : ${name}`);
     if (!isWithinProject(await realpath(fullPath))) throw new Error(`Chemin de source hors du projet : ${name}`);
     if (metadata.isDirectory()) await collectDirectory(name, files);
-    else if (metadata.isFile() && sourceExtensions.has(extname(entry.name))) files.push(name);
+    else if (metadata.isFile() && (sourceExtensions.has(extname(entry.name)) || entry.name === '_headers')) files.push(name);
   }
 }
 
